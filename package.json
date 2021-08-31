@@ -2,6 +2,11 @@
   "name": "vs-code-viewer-extension",
   "displayName": "VS Code Viewer",
   "description": "The unofficial browser extension port of VS Code for viewing programming language files and data files.  The extension automatically detects if you are opening a raw code or data file and opens the contents within a VS Code Viewer page with basic language support for 60+ languages.  Right+click to discover the command pallet, document formatter and other VS Code editor features supported in the Viewer.",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode development",
+    "release": "webpack --mode production"
+  },
   "license": "MIT",
   "keywords": [
     "vs",
@@ -14,20 +19,22 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/chriskuech/vs-code-viewer-extension"
+    "url": "https://github.com/wshon/vs-code-viewer-extension"
   },
   "dependencies": {
-    "@types/chrome": "0.0.95",
-    "css-loader": "^3.4.2",
-    "file-loader": "^5.0.2",
-    "monaco-editor": "^0.20.0",
-    "monaco-editor-webpack-plugin": "^1.9.0",
-    "shx": "^0.3.2",
-    "style-loader": "^1.1.3",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "monaco-editor": "^0.27.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.154",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "filemanager-webpack-plugin": "^6.1.6",
+    "monaco-editor-webpack-plugin": "^4.1.2",
+    "style-loader": "^3.2.1",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.4.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
   }
 }

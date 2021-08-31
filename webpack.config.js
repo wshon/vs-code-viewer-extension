@@ -1,6 +1,7 @@
 
 const path = require("path");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -33,6 +34,21 @@ module.exports = {
         ],
     },
     plugins: [
-        new MonacoWebpackPlugin()
+        new MonacoWebpackPlugin(),
+        new FileManagerPlugin({
+            events: {
+                onStart: {},
+                onEnd: {
+                    copy: [
+                        { source: './src/*.json', destination: './dist/', },
+                        { source: './src/*.html', destination: './dist/', },
+                        { source: './src/*.png', destination: './dist/', }
+                    ],
+                    archive: [
+                        { source: './dist', destination: './dist/vs-code-viewer-extension.zip' },
+                    ]
+                },
+            },
+        }),
     ]
 };
